@@ -1,4 +1,5 @@
 import React from 'react';
+import TodoCard from './TodoCard';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class App extends React.Component {
 
     // this.setState({
     //   isClicked: !this.state.isClicked,
-    // })    
+    // })
   }
 
   handleChange = (event) => {
@@ -31,6 +32,13 @@ class App extends React.Component {
     this.setState({ text: "" })
   }
 
+  deleteTodo = (index) => {
+    let copyOfTodos = this.state.todos;
+    copyOfTodos.splice(index, 1);
+
+    this.setState({ todos: [...copyOfTodos] });
+  }
+
   render() {
     return (
       <div className="App">
@@ -39,7 +47,7 @@ class App extends React.Component {
           <button type="submit">Add Todo</button>
         </form>
         <ol>{this.state.todos.map((todo, index) => {
-          return <li key={index}>{todo}</li>
+          return <TodoCard key={index} index={index} title={todo} clickToDelete={this.deleteTodo}/>
         })}</ol>
       </div>
     );

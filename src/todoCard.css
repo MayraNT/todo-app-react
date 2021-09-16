@@ -1,0 +1,25 @@
+.listItem {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  padding: 15px 25px;
+  width: 350px;
+}
+
+li::marker {
+  font-weight: bold;
+  color: rgb(2, 113, 117);
+}
+
+.deleteBtn {
+  margin-right: 15px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: gray;
+  color: lightgray;
+  font-weight: bold;
+}
